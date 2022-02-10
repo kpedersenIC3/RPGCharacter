@@ -1,5 +1,7 @@
 package dk.kpedersenIC3;
 
+import java.util.HashMap;
+
 public abstract class Character {
 
     private String Name;
@@ -7,6 +9,7 @@ public abstract class Character {
     private Double Dexterity;
     private Double Intelligence;
     private Integer Level;
+    private static HashMap<String,Item> Equipment;
 
     public Character(Double Strength, Double Dexterity, Double Intelligence, String Name) {
         this.Strength = Strength;
@@ -14,6 +17,15 @@ public abstract class Character {
         this.Intelligence = Intelligence;
         this.Name = Name;
         this.Level = 1;
+        this.Equipment = new HashMap<>();
+        this.Equipment.put("HEAD", new Item() {
+        });
+        this.Equipment.put("BODY", new Item() {
+        });
+        this.Equipment.put("LEGS", new Item() {
+        });
+        this.Equipment.put("WEAPON", new Item() {
+        });
     }
 
     public void levelUp(){
@@ -50,6 +62,12 @@ public abstract class Character {
         }
 
     }
+
+    public void equipItem(Item item){
+        if(item.getRequiredLevel()<= getLevel()) {
+            getEquipment().put(item.getSlot(), item);
+        }
+    }
     public Double getDexterity() {
         return Dexterity;
     }
@@ -70,6 +88,12 @@ public abstract class Character {
         return Name;
     }
 
+    public static void setEquipment(HashMap<String, Item> equipment) {
+        Equipment = equipment;
+    }
+    public static HashMap<String, Item> getEquipment(){
+        return Equipment;
+    }
     public void setDexterity(Double dexterity) {
         Dexterity = dexterity;
     }
@@ -92,6 +116,9 @@ public abstract class Character {
                 + "\nClass: " + Character.super.getClass().getSimpleName()
                 + "\nStrength: " + Strength
                 + "\nDexterity: " + Dexterity +"\nIntelligence: " + Intelligence
-                + "\nLevel: " + Level;
+                + "\nLevel: " + Level
+                + "\n***Equipment***"
+                + "\nWeapon: " + getEquipment().get(Slot.WEAPON)
+                + "\nARMOR: ";
     }
 }
