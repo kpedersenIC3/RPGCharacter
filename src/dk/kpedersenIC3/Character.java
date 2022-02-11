@@ -4,9 +4,9 @@ import java.util.HashMap;
 
 public abstract class Character{
 
-    private String Name;
+    private final String Name;
     private Integer Level;
-    private HashMap<String,Double> PrimaryAttributes;
+    private final HashMap<String,Double> PrimaryAttributes;
 
 
     public Character(String Name) {
@@ -15,13 +15,8 @@ public abstract class Character{
         PrimaryAttributes = new HashMap<>();
     }
 
-    public void levelUp(){};
+    public void levelUp(){}
 
-//    public void equipItem(Item item){
-//        if(item.getRequiredLevel()<= getLevel()) {
-//            getEquipment().put(item.getSlot(), item);
-//        }
-//    }
     public String getName() {
         return Name;
     }

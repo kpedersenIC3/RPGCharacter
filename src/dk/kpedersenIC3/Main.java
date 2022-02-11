@@ -26,18 +26,16 @@ public class Main {
         warrior.levelUp();
         System.out.println(warrior);
 
-//        mage.levelUp();
-//        //check weapon
-//        Weapon testWeapon = new Weapon();
-//        testWeapon.setWeaponType("AXE");
-//        testWeapon.setName("Cutters Axe");
-//        testWeapon.setSlot(Slot.WEAPON);
-//        testWeapon.setRequiredLevel(2);
-//        testWeapon.setDamage(8);
-//        testWeapon.setAttackSpeed(2.3);
-//
-//        mage.equipItem(testWeapon);
-//        System.out.println(mage);
+        //check weapon
+        Weapon testWeapon = new Weapon();
+        testWeapon.setWeaponType("AXE");
+        testWeapon.setName("Cutters Axe");
+        testWeapon.setSlot(Slot.WEAPON);
+        testWeapon.setRequiredLevel(2);
+        testWeapon.setDamage(8.);
+        testWeapon.setAttackSpeed(2.3);
+        System.out.println(testWeapon);
+
     }
 
 }
