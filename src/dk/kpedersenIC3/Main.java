@@ -28,7 +28,7 @@ public class Main {
 //
         //check weapon
         Weapon testWeapon = new Weapon();
-        testWeapon.setWeaponType("AXE");
+        testWeapon.setWeaponType(WeaponType.AXE);
         testWeapon.setName("Cutters Axe");
         testWeapon.setSlot(Slot.WEAPON);
         testWeapon.setRequiredLevel(2);
@@ -37,8 +37,8 @@ public class Main {
         System.out.println(testWeapon);
 
         Armor testArmor = new Armor();
-        testArmor.setArmorType("CLOTH");
-        testArmor.setName("Shabby scarf");
+        testArmor.setArmorType(ArmorType.CLOTH);
+        testArmor.setName("Shabby Cloth");
         testArmor.setSlot(Slot.HEAD);
         testArmor.setRequiredLevel(1);
         testArmor.setBaseAttribute(new PrimaryAttribute(1.,1.,1.));
