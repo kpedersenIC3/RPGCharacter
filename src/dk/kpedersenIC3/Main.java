@@ -25,7 +25,7 @@ public class Main {
         System.out.println(warrior);
         warrior.levelUp();
         System.out.println(warrior);
-
+//
         //check weapon
         Weapon testWeapon = new Weapon();
         testWeapon.setWeaponType("AXE");
@@ -36,6 +36,13 @@ public class Main {
         testWeapon.setAttackSpeed(2.3);
         System.out.println(testWeapon);
 
+        Armor testArmor = new Armor();
+        testArmor.setArmorType("CLOTH");
+        testArmor.setName("Shabby scarf");
+        testArmor.setSlot(Slot.HEAD);
+        testArmor.setRequiredLevel(1);
+        testArmor.setBaseAttribute(new PrimaryAttribute(1.,1.,1.));
+        System.out.println(testArmor);
     }
 
 }

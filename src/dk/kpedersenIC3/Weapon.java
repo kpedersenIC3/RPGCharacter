@@ -54,14 +54,13 @@ public class Weapon extends Item{
 
     @Override
     public String toString() {
-        return
+        return  "\nSlot: " + getSlot() +
                 "\nType: " + getWeaponType() +
-                        "\nName: " + getName() +
-                        "\nRequired Level: " + getRequiredLevel() +
-                        "\nSlot: " + getSlot() +
-                        "\nDamage: " + getDamage() +
-                        "\nAttack Speed: " + getAttackSpeed() +
-                        "\nDPS: " + DPS();
+                "\nName: " + getName() +
+                "\nRequired Level: " + getRequiredLevel() +
+                "\nDamage: " + getDamage() +
+                "\nAttack Speed: " + getAttackSpeed() +
+                "\nDPS: " + DPS();
 
 
     }

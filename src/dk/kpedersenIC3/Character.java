@@ -1,18 +1,15 @@
 package dk.kpedersenIC3;
 
-import java.util.HashMap;
-
 public abstract class Character{
 
     private final String Name;
     private Integer Level;
-    private final HashMap<String,Double> PrimaryAttributes;
+    private PrimaryAttribute BaseAttribute;
 
 
     public Character(String Name) {
         this.Name = Name;
         Level = 1;
-        PrimaryAttributes = new HashMap<>();
     }
 
     public void levelUp(){}
@@ -29,17 +26,12 @@ public abstract class Character{
         Level = level;
     }
 
-
-
-
-    public HashMap<String, Double> getPrimaryAttributes() {
-        return PrimaryAttributes;
+    public PrimaryAttribute getBaseAttribute() {
+        return BaseAttribute;
     }
 
-    public void setPrimaryAttributes(Double strength, Double dexterity, Double intelligence) {
-        this.PrimaryAttributes.put("Strength",strength);
-        this.PrimaryAttributes.put("Dexterity",dexterity);
-        this.PrimaryAttributes.put("Intelligence",intelligence);
+    public void setBaseAttribute(PrimaryAttribute baseAttribute) {
+        BaseAttribute = baseAttribute;
     }
 
     @Override
@@ -47,8 +39,8 @@ public abstract class Character{
         return "Character: " + Name
                 + "\nLevel: " + Level + " "
                 + Character.super.getClass().getSimpleName()
-                + "\nStrength: " + getPrimaryAttributes().get("Strength")
-                + "\nDexterity: " + getPrimaryAttributes().get("Dexterity")
-                +"\nIntelligence: " + getPrimaryAttributes().get("Intelligence");
+                + "\nStrength: " + BaseAttribute.getStrength()
+                + "\nDexterity: " + BaseAttribute.getDexterity()
+                +"\nIntelligence: " + BaseAttribute.getIntelligence();
     }
 }
