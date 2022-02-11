@@ -17,7 +17,7 @@ public class Armor extends Item{
             )
     );
     private String ArmorType;
-    private PrimaryAttribute BaseAttribute;
+    private static PrimaryAttribute BaseAttribute;
 
     public Armor(){
         super();
@@ -31,7 +31,7 @@ public class Armor extends Item{
         if(this.ArmorTypes.contains(armorType)) ArmorType = armorType;
     }
 
-    public PrimaryAttribute getBaseAttribute() {
+    public static PrimaryAttribute getBaseAttribute() {
         return BaseAttribute;
     }
 
@@ -43,6 +43,7 @@ public class Armor extends Item{
     public  String toString() {
         return "\nSlot: " + getSlot() +
                 "\nType: " + getArmorType() +
+                "\nName: " + getName() +
                 "\n***Abilities***" +
                 "\nStrength: " + BaseAttribute.getStrength() +
                 "\nDexterity: " + BaseAttribute.getDexterity() +

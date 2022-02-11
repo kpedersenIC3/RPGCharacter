@@ -7,6 +7,7 @@ public abstract class Item{
     private Integer RequiredLevel;
     private String Slot;
 
+
     public Item(){
     }
 
@@ -30,9 +31,7 @@ public abstract class Item{
 
     public String getSlot() {return Slot;}
 
-
-
-
-
-
+    public PrimaryAttribute getArmorAttribute() {
+        return Armor.getBaseAttribute();
+    }
 }
