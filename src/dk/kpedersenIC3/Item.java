@@ -18,11 +18,11 @@ public abstract class Item {
         this.RequiredLevel = requiredLevel;
     }
 
-    public void setSlot(String slot) {
-        if(Character.getEquipment().containsKey(slot)) {
-            this.Slot = slot;
-        }
-    }
+//    public void setSlot(String slot) {
+//        if(Character.getEquipment().containsKey(slot)) {
+//            this.Slot = slot;
+//        }
+//    }
 
     public String getName() {
         return Name;
