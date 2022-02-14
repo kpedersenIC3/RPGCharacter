@@ -34,4 +34,8 @@ public abstract class Item{
     public PrimaryAttribute getArmorAttribute() {
         return Armor.getBaseAttribute();
     }
+
+    public Double getWeaponDPS(){
+        return Weapon.weaponDPS();
+    }
 }

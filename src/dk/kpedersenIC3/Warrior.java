@@ -17,4 +17,14 @@ public class Warrior extends Character{
                 getBaseAttribute().getIntelligence()+1.));
 
     }
+
+    @Override
+    public Double DPS() {
+        Double weapondps = 1.;
+        Double multiplier = (1. + getTotalAttribute().getStrength()/100.);
+        if(getEquipment().getEquipment().get(Slot.WEAPON) != null){
+            weapondps = getEquipment().getEquipment().get(Slot.WEAPON).getWeaponDPS();
+        }
+        return weapondps*multiplier;
+    }
 }

@@ -18,4 +18,14 @@ public class Mage extends Character{
                 getBaseAttribute().getIntelligence()+5.));
 
     }
+
+    @Override
+    public Double DPS() {
+        Double weapondps = 1.;
+        Double multiplier = (1. + getTotalAttribute().getIntelligence()/100.);
+        if(getEquipment().getEquipment().get(Slot.WEAPON) != null){
+            weapondps = getEquipment().getEquipment().get(Slot.WEAPON).getWeaponDPS();
+        }
+        return weapondps*multiplier;
+    }
 }

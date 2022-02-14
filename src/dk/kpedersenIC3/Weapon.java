@@ -10,8 +10,8 @@ public class Weapon extends Item{
 
     private final HashSet<String> WeaponTypes;
     private String WeaponType;
-    private Double Damage;
-    private Double AttackSpeed;
+    private static Double Damage;
+    private static Double AttackSpeed;
     public Weapon(){
         super();
         WeaponTypes = new HashSet<>(new ArrayList<String>(Arrays.asList(
@@ -36,7 +36,7 @@ public class Weapon extends Item{
         this.Damage = damage;
     }
 
-    public Double getDamage() {
+    public static Double getDamage() {
         return Damage;
     }
 
@@ -44,11 +44,11 @@ public class Weapon extends Item{
         AttackSpeed = attackSpeed;
     }
 
-    public Double getAttackSpeed() {
+    public static Double getAttackSpeed() {
         return AttackSpeed;
     }
 
-    public Double DPS() {
+    public static Double weaponDPS() {
         return getDamage()*getAttackSpeed();
     }
 
@@ -60,7 +60,7 @@ public class Weapon extends Item{
                 "\nRequired Level: " + getRequiredLevel() +
                 "\nDamage: " + getDamage() +
                 "\nAttack Speed: " + getAttackSpeed() +
-                "\nDPS: " + DPS();
+                "\nDPS: " + weaponDPS();
 
 
     }
