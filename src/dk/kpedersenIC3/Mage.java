@@ -7,6 +7,7 @@ import java.util.HashSet;
 
 public class Mage extends Character{
     HashSet<String> ValidItems;
+
     public Mage(String name){
         super(name);
         setBaseAttribute(new PrimaryAttribute(1.,1.,8.) );
