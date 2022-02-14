@@ -7,31 +7,31 @@ public abstract class Character{
     private final String Name;
     private Integer Level;
     private PrimaryAttribute BaseAttribute;
-    private PrimaryAttribute TotalAttribute;
+    private PrimaryAttribute TotalAttribute = new PrimaryAttribute(0.,0.,0.);
     private Equipment Equipment;
 
     public Character(String Name) {
         this.Name = Name;
         this.Equipment = new Equipment();
         Level = 1;
-
     }
 
     public void levelUp(){}
     public Double DPS(){
         return 0.0;
     }
+    public void equipItem(Item item) throws InvalidItemException {
 
-    public void equipItem(Item item){
-        this.Equipment.getEquipment().put(item.getSlot(),item);
-        System.out.println();
+    }
+    public void unequipItem(Item item){
         if(item.getClass().getSimpleName().equals("Armor") ) {
             setTotalAttribute(new PrimaryAttribute(
-                    getBaseAttribute().getStrength() + item.getArmorAttribute().getStrength(),
-                    getBaseAttribute().getDexterity() + item.getArmorAttribute().getDexterity(),
-                    getBaseAttribute().getIntelligence() + item.getArmorAttribute().getIntelligence()
+                    getTotalAttribute().getStrength() - item.getArmorAttribute().getStrength(),
+                    getTotalAttribute().getDexterity() - item.getArmorAttribute().getDexterity(),
+                    getTotalAttribute().getIntelligence() - item.getArmorAttribute().getIntelligence()
             ));
         }
+        this.Equipment.getEquipment().put(item.getSlot(), null);
     }
 
     public String getName() {

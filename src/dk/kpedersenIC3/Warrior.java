@@ -1,11 +1,21 @@
 package dk.kpedersenIC3;
 
-public class Warrior extends Character{
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
 
+public class Warrior extends Character{
+    HashSet<String> ValidItems;
     public Warrior(String name){
         super(name);
-
         setBaseAttribute(new PrimaryAttribute(5.,2.,1.) );
+        ValidItems = new HashSet<>(new ArrayList<String>(Arrays.asList(
+                WeaponType.AXE,
+                WeaponType.HAMMER,
+                WeaponType.SWORD,
+                ArmorType.MAIL,
+                ArmorType.CLOTH
+        )));
     }
 
     @Override
@@ -27,4 +37,24 @@ public class Warrior extends Character{
         }
         return weapondps*multiplier;
     }
+    @Override
+    public void equipItem(Item item) throws InvalidItemException {
+        if (!ValidItems.contains(item.getType())) {
+            throw new InvalidItemException("Invalid item type " +
+                    "for class " + getClass().getSimpleName());
+        }
+        if (!(getLevel() >= item.getRequiredLevel())) {
+            throw new InvalidItemException("Cannot equip item at current level!");
+        }
+        getEquipment().getEquipment().put(item.getSlot(), item);
+        if (item.getClass().getSimpleName().equals("Armor")) {
+            setTotalAttribute(new PrimaryAttribute(
+                    getBaseAttribute().getStrength() + getTotalAttribute().getStrength() + item.getArmorAttribute().getStrength(),
+                    getBaseAttribute().getDexterity() + getTotalAttribute().getDexterity() + item.getArmorAttribute().getDexterity(),
+                    getBaseAttribute().getIntelligence() + getTotalAttribute().getIntelligence() + item.getArmorAttribute().getIntelligence()
+            ));
+        }
+
+    }
 }
+

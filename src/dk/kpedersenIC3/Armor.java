@@ -9,21 +9,21 @@ public class Armor extends Item{
     private final HashSet<String> ArmorTypes = new HashSet<>(
             new ArrayList<>(
                     Arrays.asList(
-                            "CLOTH",
-                            "LEATHER",
-                            "MAIL",
-                            "PLATE"
+                            dk.kpedersenIC3.ArmorType.CLOTH,
+                            dk.kpedersenIC3.ArmorType.LEATHER,
+                            dk.kpedersenIC3.ArmorType.MAIL,
+                            dk.kpedersenIC3.ArmorType.PLATE
                     )
             )
     );
-    private String ArmorType;
+    private static String ArmorType;
     private static PrimaryAttribute BaseAttribute;
 
     public Armor(){
         super();
     }
 
-    public String getArmorType() {
+    public static String getArmorType() {
         return ArmorType;
     }
 
@@ -44,6 +44,7 @@ public class Armor extends Item{
         return "\nSlot: " + getSlot() +
                 "\nType: " + getArmorType() +
                 "\nName: " + getName() +
+                "\nRequired Level: " + getRequiredLevel() +
                 "\n***Abilities***" +
                 "\nStrength: " + BaseAttribute.getStrength() +
                 "\nDexterity: " + BaseAttribute.getDexterity() +

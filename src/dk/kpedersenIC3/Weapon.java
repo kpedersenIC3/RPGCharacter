@@ -9,26 +9,26 @@ import java.util.HashSet;
 public class Weapon extends Item{
 
     private final HashSet<String> WeaponTypes;
-    private String WeaponType;
+    private static String WeaponType;
     private static Double Damage;
     private static Double AttackSpeed;
     public Weapon(){
         super();
         WeaponTypes = new HashSet<>(new ArrayList<String>(Arrays.asList(
-                "AXE",
-                "BOW",
-                "DAGGER",
-                "HAMMER",
-                "STAFF",
-                "SWORD",
-                "WAND"
+                dk.kpedersenIC3.WeaponType.AXE,
+                dk.kpedersenIC3.WeaponType.BOW,
+                dk.kpedersenIC3.WeaponType.DAGGER,
+                dk.kpedersenIC3.WeaponType.HAMMER,
+                dk.kpedersenIC3.WeaponType.STAFF,
+                dk.kpedersenIC3.WeaponType.SWORD,
+                dk.kpedersenIC3.WeaponType.WAND
                 )));
     };
 
-    public void setWeaponType(String weaponType) {
-        if(this.WeaponTypes.contains(weaponType)) WeaponType = weaponType;
+    public void setWeaponType(String weaponType){
+        WeaponType = weaponType;
     }
-    public String getWeaponType() {
+    public static String getWeaponType() {
         return WeaponType;
     }
 

@@ -38,4 +38,11 @@ public abstract class Item{
     public Double getWeaponDPS(){
         return Weapon.weaponDPS();
     }
+
+    public String getType() {
+        if(getSlot().equals(dk.kpedersenIC3.Slot.WEAPON)){
+            return Weapon.getWeaponType();
+        }
+        return Armor.getArmorType();
+    }
 }
