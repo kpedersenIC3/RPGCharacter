@@ -13,7 +13,4 @@ public class Equipment {
         return Equipment;
     }
 
-    public void setEquipment(HashMap<String, Item> equipment) {
-        Equipment = equipment;
-    }
 }

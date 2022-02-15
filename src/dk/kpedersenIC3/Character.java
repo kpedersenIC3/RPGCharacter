@@ -1,5 +1,6 @@
 package dk.kpedersenIC3;
 
+import java.util.HashSet;
 import java.util.Locale;
 
 public abstract class Character{
@@ -7,8 +8,8 @@ public abstract class Character{
     private final String Name;
     private Integer Level;
     private PrimaryAttribute BaseAttribute;
-    private PrimaryAttribute TotalAttribute = new PrimaryAttribute(0.,0.,0.);
-    private Equipment Equipment;
+    private PrimaryAttribute TotalAttribute;
+    private final Equipment Equipment;
 
     public Character(String Name) {
         this.Name = Name;
@@ -21,17 +22,6 @@ public abstract class Character{
         return 0.0;
     }
     public void equipItem(Item item) throws InvalidItemException {
-
-    }
-    public void unequipItem(Item item){
-        if(item.getClass().getSimpleName().equals("Armor") ) {
-            setTotalAttribute(new PrimaryAttribute(
-                    getTotalAttribute().getStrength() - item.getArmorAttribute().getStrength(),
-                    getTotalAttribute().getDexterity() - item.getArmorAttribute().getDexterity(),
-                    getTotalAttribute().getIntelligence() - item.getArmorAttribute().getIntelligence()
-            ));
-        }
-        this.Equipment.getEquipment().put(item.getSlot(), null);
     }
 
     public String getName() {

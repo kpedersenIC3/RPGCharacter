@@ -16,6 +16,7 @@ public class Mage extends Character{
                 WeaponType.WAND,
                 ArmorType.CLOTH
         )));
+        setTotalAttribute(getBaseAttribute());
     }
     @Override
     public void levelUp(){
@@ -24,7 +25,7 @@ public class Mage extends Character{
                 getBaseAttribute().getStrength()+1.,
                 getBaseAttribute().getDexterity()+1.,
                 getBaseAttribute().getIntelligence()+5.));
-
+        setTotalAttribute(getBaseAttribute());
     }
 
     @Override
@@ -48,9 +49,9 @@ public class Mage extends Character{
         getEquipment().getEquipment().put(item.getSlot(), item);
         if (item.getClass().getSimpleName().equals("Armor")) {
             setTotalAttribute(new PrimaryAttribute(
-                    getBaseAttribute().getStrength() + getTotalAttribute().getStrength() + item.getArmorAttribute().getStrength(),
-                    getBaseAttribute().getDexterity() + getTotalAttribute().getDexterity() + item.getArmorAttribute().getDexterity(),
-                    getBaseAttribute().getIntelligence() + getTotalAttribute().getIntelligence() + item.getArmorAttribute().getIntelligence()
+                    getTotalAttribute().getStrength() + item.getBaseAttribute().getStrength(),
+                    getTotalAttribute().getDexterity() + item.getBaseAttribute().getDexterity(),
+                    getTotalAttribute().getIntelligence() + item.getBaseAttribute().getIntelligence()
             ));
         }
 

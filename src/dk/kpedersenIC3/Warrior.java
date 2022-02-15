@@ -9,12 +9,13 @@ public class Warrior extends Character{
     public Warrior(String name){
         super(name);
         setBaseAttribute(new PrimaryAttribute(5.,2.,1.) );
+        setTotalAttribute(getBaseAttribute());
         ValidItems = new HashSet<>(new ArrayList<String>(Arrays.asList(
                 WeaponType.AXE,
                 WeaponType.HAMMER,
                 WeaponType.SWORD,
                 ArmorType.MAIL,
-                ArmorType.CLOTH
+                ArmorType.PLATE
         )));
     }
 
@@ -25,7 +26,7 @@ public class Warrior extends Character{
                 getBaseAttribute().getStrength()+3.,
                 getBaseAttribute().getDexterity()+2.,
                 getBaseAttribute().getIntelligence()+1.));
-
+        setTotalAttribute(getBaseAttribute());
     }
 
     @Override
@@ -49,12 +50,13 @@ public class Warrior extends Character{
         getEquipment().getEquipment().put(item.getSlot(), item);
         if (item.getClass().getSimpleName().equals("Armor")) {
             setTotalAttribute(new PrimaryAttribute(
-                    getBaseAttribute().getStrength() + getTotalAttribute().getStrength() + item.getArmorAttribute().getStrength(),
-                    getBaseAttribute().getDexterity() + getTotalAttribute().getDexterity() + item.getArmorAttribute().getDexterity(),
-                    getBaseAttribute().getIntelligence() + getTotalAttribute().getIntelligence() + item.getArmorAttribute().getIntelligence()
+                    getTotalAttribute().getStrength() + item.getBaseAttribute().getStrength(),
+                    getTotalAttribute().getDexterity() + item.getBaseAttribute().getDexterity(),
+                    getTotalAttribute().getIntelligence() + item.getBaseAttribute().getIntelligence()
             ));
         }
 
     }
+
 }
 
