@@ -66,11 +66,12 @@ public abstract class Character{
                 +"\nIntelligence: " + TotalAttribute.getIntelligence()
                 +"\nDPS: " + String.format(Locale.ENGLISH,"%.1f",DPS())
                 +"\n*****Equipment*****"
-                + "\nWeapon: " + Equipment.getEquipment().get(Slot.WEAPON)
+                + "\nWeapon: "
+                + String.format(Equipment.getEquipment().get(Slot.WEAPON) == null ? "\nNo Weapon Equipped":Equipment.getEquipment().get(Slot.WEAPON).toString() )
                 + "\nArmor: "
-                + Equipment.getEquipment().get(Slot.HEAD) + "\n"
-                + Equipment.getEquipment().get(Slot.BODY) + "\n"
-                + Equipment.getEquipment().get(Slot.LEGS) + "\n";
+                + String.format(Equipment.getEquipment().get(Slot.HEAD) == null ? "\nNo Head Armor Equipped":Equipment.getEquipment().get(Slot.HEAD).toString() )
+                + String.format(Equipment.getEquipment().get(Slot.BODY) == null ? "\nNo Body Armor Equipped":Equipment.getEquipment().get(Slot.BODY).toString() )
+                + String.format(Equipment.getEquipment().get(Slot.LEGS) == null ? "\nNo Leg Armor Equipped":Equipment.getEquipment().get(Slot.LEGS).toString() ) + "\n";
 
     }
 }
