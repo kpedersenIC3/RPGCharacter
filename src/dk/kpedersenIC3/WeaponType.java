@@ -1,5 +1,5 @@
 package dk.kpedersenIC3;
-
+//Helper Class to restrict weapon type data input.
 public class WeaponType {
     public static final String AXE = "AXE";
     public static final String BOW = "BOW";

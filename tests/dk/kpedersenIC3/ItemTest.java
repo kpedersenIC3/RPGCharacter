@@ -4,7 +4,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
-
+//Test class to test if exceptions and equipment of items is done correctly.
+//Tests done is implicit in  test method name.
 class ItemTest {
 
     Warrior warrior;

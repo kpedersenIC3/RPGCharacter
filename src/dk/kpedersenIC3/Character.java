@@ -1,22 +1,22 @@
 package dk.kpedersenIC3;
-
-import java.util.HashSet;
 import java.util.Locale;
-
+//Main character class
 public abstract class Character{
-
+    //declaration of character attributes
     private final String Name;
     private Integer Level;
     private PrimaryAttribute BaseAttribute;
     private PrimaryAttribute TotalAttribute;
     private final Equipment Equipment;
-
+    //Set name on construction and initialize an empty equipment type.
+    //All characters star at level 1.
     public Character(String Name) {
         this.Name = Name;
         this.Equipment = new Equipment();
-        Level = 1;
+        this.Level = 1;
     }
-
+    //Methods to be overridden in each character class.
+    //This is done to handle individual character class functionality.
     public void levelUp(){}
     public Double DPS(){
         return 0.0;
@@ -24,6 +24,8 @@ public abstract class Character{
     public void equipItem(Item item) throws InvalidItemException {
     }
 
+
+    //getters and setters.
     public String getName() {
         return Name;
     }
@@ -56,6 +58,8 @@ public abstract class Character{
         return Equipment;
     }
 
+
+    //Sweet looking printout of character stats
     @Override
     public String toString() {
         return "Character: " + Name

@@ -4,10 +4,10 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
-
+//Test class to test if character class Rogue initializes and levels up as intended.
+//Tests done is implicit in  test method name.
 class RogueTest {
     Rogue rogue;
-
     @BeforeEach
     void setUp() {
         rogue = new Rogue("test_name");

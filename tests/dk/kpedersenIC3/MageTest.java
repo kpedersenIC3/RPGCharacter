@@ -4,10 +4,10 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
-
+//Test class to test if character class Mage initializes and levels up as intended.
+//Tests done is implicit in  test method name.
 class MageTest {
     Mage mage;
-
     @BeforeEach
     void setUp() {
         mage = new Mage("test_name");

@@ -4,7 +4,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
-
+//Test class to test if character class Warrior initializes and levels up as intended.
+//Tests done is implicit in  test method name.
 class WarriorTest {
     Warrior warrior;
     @BeforeEach
