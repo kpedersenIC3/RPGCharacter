@@ -4,7 +4,7 @@ Console app that creates and modifies RPG characters
  Clone the repository.
  Build and run `Main`.
 ## Usage
- Play around with `main` method in `Main.java`.
+ Play around with `main` method in `src/dk/kpedersenIC3/Main.java`.
  An example is given in `main` on how to use.
 
 ## Maintainer/Author
