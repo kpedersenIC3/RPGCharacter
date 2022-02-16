@@ -11,7 +11,7 @@ public class Mage extends Character{
     public Mage(String name){
         super(name);
         setBaseAttribute(new PrimaryAttribute(1.,1.,8.) );
-        setTotalAttribute(getBaseAttribute());
+        setTotalAttribute();
         ValidItems = new HashSet<>(new ArrayList<>(Arrays.asList(
                 WeaponType.STAFF,
                 WeaponType.WAND,
@@ -26,7 +26,7 @@ public class Mage extends Character{
                 getBaseAttribute().getStrength()+1.,
                 getBaseAttribute().getDexterity()+1.,
                 getBaseAttribute().getIntelligence()+5.));
-        setTotalAttribute(getBaseAttribute());
+        setTotalAttribute();
     }
     //individual Damage Per Second. Checks if weapon is equipped and
     // multiplier uses intelligence in Mage Class.
@@ -53,11 +53,7 @@ public class Mage extends Character{
         }
         getEquipment().getEquipment().put(item.getSlot(), item);
         if (item.getClass().getSimpleName().equals("Armor")) {
-            setTotalAttribute(new PrimaryAttribute(
-                    getTotalAttribute().getStrength() + item.getBaseAttribute().getStrength(),
-                    getTotalAttribute().getDexterity() + item.getBaseAttribute().getDexterity(),
-                    getTotalAttribute().getIntelligence() + item.getBaseAttribute().getIntelligence()
-            ));
+            setTotalAttribute();
         }
     }
 }

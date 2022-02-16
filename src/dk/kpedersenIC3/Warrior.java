@@ -11,7 +11,7 @@ public class Warrior extends Character{
     public Warrior(String name){
         super(name);
         setBaseAttribute(new PrimaryAttribute(5.,2.,1.) );
-        setTotalAttribute(getBaseAttribute());
+        setTotalAttribute();
         ValidItems = new HashSet<>(new ArrayList<String>(Arrays.asList(
                 WeaponType.AXE,
                 WeaponType.HAMMER,
@@ -28,7 +28,7 @@ public class Warrior extends Character{
                 getBaseAttribute().getStrength()+3.,
                 getBaseAttribute().getDexterity()+2.,
                 getBaseAttribute().getIntelligence()+1.));
-        setTotalAttribute(getBaseAttribute());
+        setTotalAttribute();
     }
     //individual Damage Per Second. Checks if weapon is equipped and
     // multiplier uses strength in Warrior Class.
@@ -55,11 +55,7 @@ public class Warrior extends Character{
         }
         getEquipment().getEquipment().put(item.getSlot(), item);
         if (item.getClass().getSimpleName().equals("Armor")) {
-            setTotalAttribute(new PrimaryAttribute(
-                    getTotalAttribute().getStrength() + item.getBaseAttribute().getStrength(),
-                    getTotalAttribute().getDexterity() + item.getBaseAttribute().getDexterity(),
-                    getTotalAttribute().getIntelligence() + item.getBaseAttribute().getIntelligence()
-            ));
+            setTotalAttribute();
         }
 
     }

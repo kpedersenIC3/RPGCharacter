@@ -23,12 +23,20 @@ public class Main {
         chainMail.setArmorType(ArmorType.MAIL);
         chainMail.setBaseAttribute(new PrimaryAttribute(1.,3.,0.));
 
+        Armor headPlate = new Armor();
+        headPlate.setName("Rusty Helmet");
+        headPlate.setRequiredLevel(2);
+        headPlate.setSlot(Slot.HEAD);
+        headPlate.setArmorType(ArmorType.PLATE);
+        headPlate.setBaseAttribute(new PrimaryAttribute(0.,0.,3.));
+
         //Equip sword
         warrior.equipItem(rustySword);
 
         //Level up to equip Armor
         warrior.levelUp();
         warrior.equipItem(chainMail);
+        warrior.equipItem(headPlate);
 
         //Printout Stats
         System.out.println(warrior);

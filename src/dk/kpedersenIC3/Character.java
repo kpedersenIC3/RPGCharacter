@@ -1,5 +1,7 @@
 package dk.kpedersenIC3;
 import java.util.Locale;
+import java.util.Map;
+
 //Main character class
 public abstract class Character{
     //declaration of character attributes
@@ -50,7 +52,18 @@ public abstract class Character{
         return TotalAttribute;
     }
 
-    public void setTotalAttribute(PrimaryAttribute totalAttribute) {
+    public void setTotalAttribute() {
+        //total attribute = base attribute + all armor items attribute:
+        PrimaryAttribute totalAttribute = getBaseAttribute();
+        for(Map.Entry<String,Item> entry : getEquipment().getEquipment().entrySet()){
+            if(!entry.getKey().equals(Slot.WEAPON)){
+                totalAttribute = new PrimaryAttribute(
+                        totalAttribute.getStrength() + entry.getValue().getBaseAttribute().getStrength(),
+                        totalAttribute.getDexterity() + entry.getValue().getBaseAttribute().getDexterity(),
+                        totalAttribute.getIntelligence() + entry.getValue().getBaseAttribute().getIntelligence()
+                );
+            }
+        }
         this.TotalAttribute = totalAttribute;
     }
 

@@ -11,7 +11,7 @@ public class Ranger extends Character{
     public Ranger(String name){
         super(name);
         setBaseAttribute(new PrimaryAttribute(1.,7.,1.) );
-        setTotalAttribute(getBaseAttribute());
+        setTotalAttribute();
         ValidItems = new HashSet<>(new ArrayList<String>(Arrays.asList(
                 WeaponType.BOW,
                 ArmorType.LEATHER,
@@ -26,7 +26,7 @@ public class Ranger extends Character{
                 getBaseAttribute().getStrength()+1.,
                 getBaseAttribute().getDexterity()+5.,
                 getBaseAttribute().getIntelligence()+1.));
-        setTotalAttribute(getBaseAttribute());
+        setTotalAttribute();
     }
     //individual Damage Per Second. Checks if weapon is equipped and
     // multiplier uses dexterity in Ranger Class.
@@ -53,11 +53,7 @@ public class Ranger extends Character{
         }
         getEquipment().getEquipment().put(item.getSlot(), item);
         if (item.getClass().getSimpleName().equals("Armor")) {
-            setTotalAttribute(new PrimaryAttribute(
-                    getTotalAttribute().getStrength() + item.getBaseAttribute().getStrength(),
-                    getTotalAttribute().getDexterity() + item.getBaseAttribute().getDexterity(),
-                    getTotalAttribute().getIntelligence() + item.getBaseAttribute().getIntelligence()
-            ));
+            setTotalAttribute();
         }
     }
 }
